@@ -1,0 +1,25 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="posts content">
+    <h2>All Posts</h2>
+
+    <% if (posts.length > 0) { %>
+      <% posts.forEach(post => { %>
+        <a class="single" href="/posts/<%= post._id %>">
+          <h3 class="title"><%= post.title %></h3>
+          <p class="snippet"><%= post.field %></p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p style="color: darkslategrey;"><i>There are no posts to display...</i></p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
